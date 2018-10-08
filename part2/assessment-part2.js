@@ -192,41 +192,19 @@ function frodo(startingHungerValue, startingDangerValue) {
   let hunger = startingHungerValue;
   let danger = startingDangerValue;
 
-  dinnerOverFire = {
-    hunger: hunger - 25,
+  dinnerOverFire = () => {
+    hunger: hunger - 25
     danger: danger + 40
   }
 
-  hidingInBush = {
-    hunger: hunger + 35,
+  hidingInBush = () => {
+    hunger: hunger + 35
     danger: danger - 20
   }
+
+  return hidingInBush , dinnerOverFire
 }
 
-console.log(frodo(10, 20));
+console.log(frodo())
 
-// hungry1=50;
-// inDanger2=50;
-// function frodo(startingHungerValue,startingDangerValue){
-// var object={
-//   hunger:startingHungerValue,
-//   danger:startingDangerValue
-// };
-// var func={
-//   dinnerOverFire: function(){
-// if(object.hunger >= 25 && object.danger <=60){
-// object.hunger = object.hunger-25;
-// object.danger = object.danger + 40;
-// return object;
-//  } },
-//   hidingInBush: function(){
-// if(object.hunger <= 65 && object.danger >=20){
-//   object.hunger = object.hunger+35;
-// object.danger = object.danger - 20;
-// return object;
-// }
-//   }
-// };
 
-// }
-// console.log(frodo.func['dinnerOverFire'](hungry1,inDanger2));
