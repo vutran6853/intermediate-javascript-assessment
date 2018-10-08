@@ -44,7 +44,17 @@ function noWeakLink() {
     url: '/api/users'
   })
   // CODE HERE...
-
+  .then((response) => {
+    // console.log(response)
+    firstUser = response.data[0]
+    // console.log(firstUser)
+    return response
+  })
+  .then((response) => {
+    // console.log(response.data)
+    thirdUser = response.data[2]
+    return response.data[9]
+  })
 }
 
 
@@ -74,8 +84,10 @@ function large() {
   return 'My name is ' + this.name + ' and I am very heavy!'
 }
 // CODE HERE...
+console.log(large())
+var large = large.bind(elephant)
 
-
+console.log(large())
 
 // *************
 // * PROBLEM 3 *
@@ -89,7 +101,12 @@ function large() {
 
 // CODE HERE...
 
+function deathStat(param1, param2) {
+ 
 
+
+}
+console.log(deathStat('ThisisME', 'me'))
 
 // *************
 // * PROBLEM 4 *
@@ -104,6 +121,11 @@ function large() {
 
 // CODE HERE...
 
+function accountingOffice(assets) {
+  return function liabilites(Number) {
+    return assets + Number
+  }
+}
 
 
 // *************
@@ -129,6 +151,14 @@ function large() {
 
 // CODE HERE...
 
+function forgetter(name) {
+  return function rememberall(item) {
+    return {
+      name: name,
+      remember: [item]
+    }
+  }
+}
 
 
 // *************
@@ -156,3 +186,47 @@ function large() {
 // NOTE: Neither hunger nor danger should be able to exceed 100 or drop below 0.
 
 // CODE HERE...
+
+
+function frodo(startingHungerValue, startingDangerValue) {
+  let hunger = startingHungerValue;
+  let danger = startingDangerValue;
+
+  dinnerOverFire = {
+    hunger: hunger - 25,
+    danger: danger + 40
+  }
+
+  hidingInBush = {
+    hunger: hunger + 35,
+    danger: danger - 20
+  }
+}
+
+console.log(frodo(10, 20));
+
+// hungry1=50;
+// inDanger2=50;
+// function frodo(startingHungerValue,startingDangerValue){
+// var object={
+//   hunger:startingHungerValue,
+//   danger:startingDangerValue
+// };
+// var func={
+//   dinnerOverFire: function(){
+// if(object.hunger >= 25 && object.danger <=60){
+// object.hunger = object.hunger-25;
+// object.danger = object.danger + 40;
+// return object;
+//  } },
+//   hidingInBush: function(){
+// if(object.hunger <= 65 && object.danger >=20){
+//   object.hunger = object.hunger+35;
+// object.danger = object.danger - 20;
+// return object;
+// }
+//   }
+// };
+
+// }
+// console.log(frodo.func['dinnerOverFire'](hungry1,inDanger2));

@@ -15,7 +15,7 @@ function daBears(){
     var chair = "Too Big!";
     var bed = "Too Hard!";
     var feeling = "Angry";
-
+    console.log(feeling)
     function mamaBear(){
       var porridge = "Too Cold!";
       var bed = "Too Soft!";
@@ -34,6 +34,7 @@ function daBears(){
     var feeling = "Hungry";
     var isFurry = false;
     var isDinner = true;
+   console.log(isDinner)
   }
 }
 
@@ -44,6 +45,7 @@ function daBears(){
 // (Delete wrong answers, leave correct ones)
 
 var fairyTale1 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+// console.log(fairyTale1)
 
 // Which function(s) access the "feeling" variable and get "Hungry"
 // (Delete wrong answers, leave correct ones)
@@ -84,7 +86,24 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 // CODE HERE...
 
 
+function Vehicle() {
+  this.gasRemaining = 100;
+}
+Vehicle.prototype.drive = function() {
+  this.gasRemaining = this.gasRemaining - 25;
+}
 
+let charger = new Vehicle();
+let mustang = new Vehicle();
+let mustang1 = new Vehicle();
+
+charger.drive()
+mustang.drive()
+mustang.drive()
+
+// console.log(this.Vehicle)
+// console.log(charger);
+// console.log(mustang);
 
 
 // -----------------------------------------------------------------------------
@@ -104,12 +123,24 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 // Your method may be passed punctuation, numbers or other non-letter characters
 // and should neither modify them nor break when encountering them.
 
-
-
-
 // CODE HERE...
 
+String.prototype.grammarPolice = function() {
+  // console.log(String.prototype)
+  newString = this.toLowerCase().split(" ")
 
+  for(let i = 0; i < newString.length; i++) {
+    // console.log( newString[i])
+    newString[i] = newString[i].charAt(0).toUpperCase() + newString[i].substring(1)
+    // console.log(newString[i]);
+  }
+
+  newString = newString.join(" ");
+
+  return newString
+}
+// console.log(grammarPolice())
+// console.log("OH HELLO THERE".grammarPolice())
 
 // *************
 // * PROBLEM 4 *
@@ -128,6 +159,18 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 // CODE HERE...
 
 
+function valueType(parmas1, parmas2) {
+  if(typeof parmas1 === typeof parmas2 && parmas1 === parmas2) {
+    // console.log('same') 
+    return 'Exactly the same'
+  } else if(parmas1 === parmas2 && typeof parmas1 !== typeof parmas2) {
+    // console.log('Same value, different types')
+  } else {
+    return 'Different values'
+  }
+}
+console.log(valueType(2, "fo"))
+console.log(typeof 2)
 
 // *************
 // * PROBLEM 5 *
@@ -138,6 +181,21 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 // Your function will need to handle that promise.
 // When your promise receives its results, set variable 'theAnswer' (seen below) equal to the result.
 
+
+// CODE HERE...
+
 var theAnswer = "Unknown";
 
 // CODE HERE...
+var theAnswer = "Unknown";
+
+function promiseCatcher(param) {
+  param.then((response) => {
+    console.log(response)
+    theAnswer = response
+    return response
+  })
+}
+console.log(promiseCatcher(theAnswer))
+// 
+
